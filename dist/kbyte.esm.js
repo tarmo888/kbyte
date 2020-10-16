@@ -1,6 +1,11 @@
-import WebSocket from 'ws';
-
-// @ts-ignore
+var WebSocket;
+if (typeof window !== 'undefined') {
+    // @ts-ignore
+    WebSocket = window.WebSocket;
+}
+else {
+    WebSocket = require('ws');
+}
 var wait = function (ws, cb) {
     setTimeout(function () {
         if (ws.readyState === 1) {
