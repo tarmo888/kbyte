@@ -6,7 +6,7 @@ if (typeof window !== 'undefined') {
   WebSocket = require('ws');
 }
 
-const wait = (ws: WebSocket, cb) => {
+const wait = (ws: any, cb) => {
   setTimeout(() => {
     if (ws.readyState === 1) {
       if (cb !== null) cb();
@@ -18,7 +18,7 @@ const wait = (ws: WebSocket, cb) => {
 
 export default class Client {
   private readonly address: string;
-  private readonly ws: WebSocket;
+  private readonly ws: any;
   private readonly queue: object;
   private notifications: any;
   private open: boolean;
