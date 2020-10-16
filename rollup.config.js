@@ -12,7 +12,7 @@ export default [
     output: {
       name: pkg.name,
       file: pkg.browser,
-      format: 'iife',
+      format: 'umd',
       globals: {
         ws: 'WebSocket'
       }
