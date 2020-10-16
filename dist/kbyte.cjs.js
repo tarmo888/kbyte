@@ -1,10 +1,13 @@
 'use strict';
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var WebSocket = _interopDefault(require('ws'));
-
-// @ts-ignore
+var WebSocket;
+if (typeof window !== 'undefined') {
+    // @ts-ignore
+    WebSocket = window.WebSocket;
+}
+else {
+    WebSocket = require('ws');
+}
 var wait = function (ws, cb) {
     setTimeout(function () {
         if (ws.readyState === 1) {
